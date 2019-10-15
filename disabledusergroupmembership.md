@@ -1,0 +1,1 @@
+Make sure to either put in an AD path in the searchbase variable or remove the searchbase from $disabledusers before running.
