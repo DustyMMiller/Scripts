@@ -1,0 +1,2 @@
+Make sure to update the $searchbase variable or remove it from the $userstomove.
+Make sure to update the $targetpath variable to your Disabled Accounts AD Path, or wherever you want disabled accounts to go.
