@@ -1,0 +1,13 @@
+$old = <old location to move from>
+$new = <new location to move to>
+$user = get-aduser <user samaccountname> -properties SID
+
+robocopy $old $new /E /ZB /DCOPY:DAT /R:1 /W:1 /TEE
+
+$itemlist = get-childitem -Path $new -recurse
+foreach ($item in $itemlist) {
+	$Acl = $null;
+	$Acl = Get-ACL -Path $item.FullName;
+	$Acl.SetOwner($user.SID);
+	Set-Acl -Path $item.FullName -AclObject $Acl;
+}
